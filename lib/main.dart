@@ -1,6 +1,8 @@
 import 'package:bet_drasha/firebase_options.dart';
 import 'package:bet_drasha/provider/progress_provider.dart';
+import 'package:bet_drasha/screens/home_Screen.dart';
 import 'package:bet_drasha/screens/login_screen.dart';
+import 'package:bet_drasha/screens/signup_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -24,10 +26,14 @@ class BetEdrashApp extends StatelessWidget {
       create: (context) {
         return ProgresProvider();
       },
-      child: const MaterialApp(
+      child: MaterialApp(
         debugShowCheckedModeBanner: false,
-        home: LoginScreen()
-        
+        routes: {
+          HomeScreen.id:(context) => const HomeScreen(),
+          LoginScreen.id: (context) => const LoginScreen(),
+          SignupScreen.id:(context) => SignupScreen(),
+        },
+        initialRoute: LoginScreen.id,
       ),
     );
   }

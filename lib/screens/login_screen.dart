@@ -1,3 +1,4 @@
+import 'package:bet_drasha/screens/home_Screen.dart';
 import 'package:bet_drasha/screens/signup_screen.dart';
 import 'package:bet_drasha/widgets/custom_button.dart';
 import 'package:bet_drasha/widgets/custom_text_field.dart';
@@ -7,7 +8,7 @@ import 'package:flutter/material.dart';
 // ignore: must_be_immutable
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
-  static String id ="LoginScreen";
+  static String id ="Login Screen";
 
   @override
   State<LoginScreen> createState() => _LoginScreenState();
@@ -41,7 +42,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   final credential = await FirebaseAuth.instance
                       .signInWithEmailAndPassword(
                           email: email!, password: password!);
-                  
+                  Navigator.pushNamed(context, HomeScreen.id);
                 } on FirebaseAuthException catch (e) {
                   if (e.code == 'user-not-found') {
                     print('No user found for that email.');
@@ -57,12 +58,11 @@ class _LoginScreenState extends State<LoginScreen> {
               const Text('Don\'t have account?'),
               GestureDetector(
                   onTap: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => SignupScreen()));
+                    Navigator.pushNamed(context, SignupScreen.id);
                   },
-                  child: Text(' Sign Up')),
+                  child: const Text(' Sign Up', style: TextStyle(
+                    color: Colors.blue
+                  ),)),
             ],
           )
         ],
