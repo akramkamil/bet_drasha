@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1083979641425",
+    "project_id": "bet-drasha",
+    "storage_bucket": "bet-drasha.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1083979641425:android:2734b8d52a29c5500cfe70",
+        "android_client_info": {
+          "package_name": "com.example.bet_drasha"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1083979641425-2f2vaclg7jtkbja3od3vglgb68vbbk78.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBXGzRv3zoUMuCo7Rppf-S9iuEQ3GrZu3g"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1083979641425-2f2vaclg7jtkbja3od3vglgb68vbbk78.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
