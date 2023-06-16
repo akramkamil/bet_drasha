@@ -7,19 +7,23 @@ import 'package:bet_drasha/screens/signup_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform
   );
-  runApp(BetEdrashApp());
+  SharedPreferences prefs = await SharedPreferences.getInstance();
+  bool isLoggedIn = prefs.getBool('isLoggedIn') ?? false;
+  runApp(BetEdrashApp(isLoggedIn: isLoggedIn,));
 }
 
 
 // ignore: must_be_immutable
 class BetEdrashApp extends StatelessWidget {
-  BetEdrashApp({super.key});
+  BetEdrashApp({super.key, required this.isLoggedIn});
+  final isLoggedIn;
   ProgresProvider? progress;
   @override
   Widget build(BuildContext context) {
@@ -35,7 +39,7 @@ class BetEdrashApp extends StatelessWidget {
           SignupScreen.id:(context) => SignupScreen(),
           ProfileScreen.id: (context) => ProfileScreen(),
         },
-        initialRoute: LoginScreen.id,
+        initialRoute: isLoggedIn ? HomeScreen.id :  LoginScreen.id,
       ),
     );
   }
