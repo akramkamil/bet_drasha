@@ -17,7 +17,7 @@ class SingleLessonItem extends StatelessWidget {
               onTap: () {
                 Navigator.push(
                   context, 
-                  MaterialPageRoute(builder: (context) =>  SingleLesson(title: lesson.title,videoUrl: lesson.videoUrl)));
+                  MaterialPageRoute(builder: (context) =>  SingleLessonScreen(title: lesson.title,videoUrl: lesson.videoUrl)));
               },
               child: Row(
                 children:  [

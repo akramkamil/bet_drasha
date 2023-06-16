@@ -1,17 +1,19 @@
+import 'package:bet_drasha/components/bottom_navigation.dart';
+import 'package:bet_drasha/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
-class SingleLesson extends StatefulWidget {
-  const SingleLesson({super.key, required this.title ,required this.videoUrl});
+class SingleLessonScreen extends StatefulWidget {
+  const SingleLessonScreen({super.key, required this.title ,required this.videoUrl});
   final String videoUrl;
   final String title;
 
 
   @override
-  State<SingleLesson> createState() => _SingleLessonState();
+  State<SingleLessonScreen> createState() => _SingleLessonScreenState();
 }
 
-class _SingleLessonState extends State<SingleLesson> {
+class _SingleLessonScreenState extends State<SingleLessonScreen> {
 
   late YoutubePlayerController _controller; 
 
@@ -32,6 +34,7 @@ class _SingleLessonState extends State<SingleLesson> {
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.title),
+        backgroundColor: kPrimaryColor,
       ),
       body: Column(
         children: [
@@ -51,6 +54,7 @@ class _SingleLessonState extends State<SingleLesson> {
           ],)
         ],
       ),
+      bottomNavigationBar: BottomNavigation(),
     );
   }
 }

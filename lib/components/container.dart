@@ -1,6 +1,4 @@
-import 'package:bet_drasha/provider/progress_provider.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 
 class Componant extends StatelessWidget {
   const Componant({super.key, this.title, this.color, this.ontap});
@@ -30,15 +28,7 @@ class Componant extends StatelessWidget {
                 fontSize: 16,
               ),
             ),
-             Padding(
-              padding: const EdgeInsets.only(right :15.0, top: 8),
-              child:   LinearProgressIndicator(
-              value: Provider.of<ProgresProvider>(context, listen: true).progress /100,
-              color: Colors.amber,
-              backgroundColor:  const Color(0xff46322B),
-              minHeight: 10,
-                      ),
-            )
+            
           ],
         ),
       ),

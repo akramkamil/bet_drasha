@@ -1,3 +1,5 @@
+import 'package:bet_drasha/components/bottom_navigation.dart';
+import 'package:bet_drasha/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:bet_drasha/components/item.dart';
 import 'package:bet_drasha/provider/family_members_provider.dart';
@@ -10,7 +12,7 @@ class FamilyMember extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Family Member'),
-        backgroundColor: const Color(0xff46322B),
+        backgroundColor: kPrimaryColor,
       ),
       body: ListView.builder(
         itemCount: familyMemberList.length,
@@ -18,6 +20,7 @@ class FamilyMember extends StatelessWidget {
           return Item(word: familyMemberList[index]);
         },
       ),
+      bottomNavigationBar: BottomNavigation(),
     );
   }
 }

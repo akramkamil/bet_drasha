@@ -1,4 +1,6 @@
-import 'package:bet_drasha/screens/home_Screen.dart';
+// ignore_for_file: unused_local_variable
+
+import 'package:bet_drasha/screens/home_screen.dart';
 import 'package:bet_drasha/screens/signup_screen.dart';
 import 'package:bet_drasha/widgets/custom_button.dart';
 import 'package:bet_drasha/widgets/custom_text_field.dart';
@@ -42,7 +44,8 @@ class _LoginScreenState extends State<LoginScreen> {
                   final credential = await FirebaseAuth.instance
                       .signInWithEmailAndPassword(
                           email: email!, password: password!);
-                  Navigator.pushNamed(context, HomeScreen.id);
+                  Navigator.of(context).pushAndRemoveUntil(
+                    MaterialPageRoute(builder: (context) => HomeScreen()), (route) => false);
                 } on FirebaseAuthException catch (e) {
                   if (e.code == 'user-not-found') {
                     print('No user found for that email.');

@@ -1,4 +1,6 @@
+import 'package:bet_drasha/components/bottom_navigation.dart';
 import 'package:bet_drasha/components/container.dart';
+import 'package:bet_drasha/constants.dart';
 import 'package:bet_drasha/provider/book_provider.dart';
 import 'package:bet_drasha/screens/single_book.dart';
 import 'package:flutter/material.dart';
@@ -12,6 +14,7 @@ class DrashaBook extends StatelessWidget {
     return Scaffold(
         appBar: AppBar(
           title: const Text('Drasha'),
+          backgroundColor: kPrimaryColor,
         ),
         body: ListView.builder(
           itemCount: bookList.length,
@@ -24,6 +27,7 @@ class DrashaBook extends StatelessWidget {
                   MaterialPageRoute(builder: (context) => SingleBook(book: bookList[index])));
             },
           );
-        })));
+        })),
+        bottomNavigationBar: BottomNavigation(),);
   }
 }

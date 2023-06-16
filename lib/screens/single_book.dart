@@ -1,3 +1,5 @@
+import 'package:bet_drasha/components/bottom_navigation.dart';
+import 'package:bet_drasha/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:bet_drasha/models/book.dart';
 
@@ -10,6 +12,7 @@ class SingleBook extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text(book.title),
+        backgroundColor: kPrimaryColor,
       ),
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(16.0),
@@ -33,6 +36,7 @@ class SingleBook extends StatelessWidget {
           ],
         ),
       ),
+      bottomNavigationBar: BottomNavigation(),
     );
   }
 }

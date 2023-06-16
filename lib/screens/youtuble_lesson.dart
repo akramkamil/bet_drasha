@@ -1,9 +1,11 @@
+import 'package:bet_drasha/components/bottom_navigation.dart';
+import 'package:bet_drasha/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:bet_drasha/components/lesson_video.dart';
 import 'package:bet_drasha/provider/lesson_provider.dart';
 
-class OnlineLesson extends StatelessWidget {
-  const OnlineLesson({super.key});
+class OnlineLessonScreen extends StatelessWidget {
+  const OnlineLessonScreen({super.key});
 
 
   @override
@@ -11,12 +13,14 @@ class OnlineLesson extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text('online lessons'),
+        backgroundColor: kPrimaryColor,
       ),
       body: ListView.builder(
         itemCount: lessonList.length,
         itemBuilder: (context, index){
           return SingleLessonItem(lesson: lessonList[index]);
-      })
+      }),
+      bottomNavigationBar: BottomNavigation(),
     );
   }
 }
