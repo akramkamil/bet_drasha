@@ -22,6 +22,7 @@ class SignupScreen extends StatelessWidget {
               }),
           CustomTextField(
               hintText: 'Password',
+              obscureText: true,
               onChanged: (data) {
                 password = data;
               }),

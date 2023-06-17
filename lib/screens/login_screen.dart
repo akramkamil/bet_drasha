@@ -35,6 +35,7 @@ class _LoginScreenState extends State<LoginScreen> {
           ),
           CustomTextField(
             hintText: 'password',
+            obscureText: true,
             onChanged: (data) {
               password = data;
             },
