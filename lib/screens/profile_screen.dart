@@ -1,6 +1,8 @@
 import 'package:bet_drasha/components/bottom_navigation.dart';
+import 'package:bet_drasha/constants.dart';
 import 'package:bet_drasha/provider/progress_provider.dart';
 import 'package:flutter/material.dart';
+import 'package:percent_indicator/circular_percent_indicator.dart';
 import 'package:provider/provider.dart';
 
 class ProfileScreen extends StatelessWidget {
@@ -11,25 +13,59 @@ class ProfileScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: Column(
+      appBar: AppBar(
+        backgroundColor: kPrimaryColor,
+        automaticallyImplyLeading: false,
+        title: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text('imge'),
-            Text('progress'),
-             Padding(
-                padding: const EdgeInsets.only(right :15.0, top: 8),
-                child:   LinearProgressIndicator(
-                value: Provider.of<ProgresProvider>(context, listen: true).progress /100,
-                color: Colors.amber,
-                backgroundColor:  const Color(0xff46322B),
-                minHeight: 10,
-                        ),
-              )
+            Image.asset(
+              'assets/images/logo/logo.png',
+              height: 40,
+              color: Colors.white,
+            )
           ],
         ),
       ),
-      bottomNavigationBar: BottomNavigation(currentIndex: 1,),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            ClipRRect(
+              borderRadius: BorderRadius.circular(50),
+              child: Image.asset(
+                'assets/images/profile/imageProfile.jpeg',
+                height: 110,
+              ),
+            ),
+            const Column(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                Text('Name: Akram Kamil'),
+            Text('Email: Akram_Kamil@gmail.com'),
+              ],
+            ),
+            CircularPercentIndicator(
+              percent: Provider.of<ProgresProvider>(context, listen: true)
+                      .progress /
+                  100,
+              progressColor: Colors.amber,
+              backgroundColor: const Color(0xff46322B),
+              lineWidth: 10,
+              radius: 40,
+              center: Text(
+                  (Provider.of<ProgresProvider>(context, listen: true)
+                                  .progress /
+                              100)
+                          .toString() +
+                      "%"),
+            )
+          ],
+        ),
+      ),
+      bottomNavigationBar: BottomNavigation(
+        currentIndex: 1,
+      ),
     );
   }
 }

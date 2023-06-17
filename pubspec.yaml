@@ -70,6 +70,8 @@ flutter:
     - assets/images/numbers/
     - assets/images/family_members/
     - assets/images/colors/
+    - assets/images/logo/
+    - assets/images/profile/
     - assets/sounds/phrases/
     - assets/sounds/numbers/
     - assets/sounds/family_members/
